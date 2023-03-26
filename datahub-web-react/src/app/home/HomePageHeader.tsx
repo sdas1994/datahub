@@ -21,15 +21,6 @@ import { DEFAULT_APP_CONFIG } from '../../appConfigContext';
 import { HOME_PAGE_SEARCH_BAR_ID } from '../onboarding/config/HomePageOnboardingConfig';
 import { useUserContext } from '../context/useUserContext';
 
-const Background = styled.div`
-    width: 100%;
-    background-image: linear-gradient(
-        ${(props) => props.theme.styles['homepage-background-upper-fade']},
-        75%,
-        ${(props) => props.theme.styles['homepage-background-lower-fade']}
-    );
-`;
-
 const WelcomeText = styled(Typography.Text)`
     font-size: 16px;
     color: ${(props) =>
@@ -219,7 +210,7 @@ export const HomePageHeader = () => {
     }, [searchResultsData, entityRegistry]);
 
     return (
-        <Background>
+        <>
             <Row justify="space-between" style={styles.navBar}>
                 <WelcomeText>
                     {!!user && (
@@ -288,6 +279,6 @@ export const HomePageHeader = () => {
                     )}
                 </SearchBarContainer>
             </HeaderContainer>
-        </Background>
+        </>
     );
 };

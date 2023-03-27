@@ -51,13 +51,9 @@ const StyledSearchBar = styled(Input)`
     height: 48px;
     font-size: 20px;
     color: ${ANTD_GRAY[7]};
-    transition: transform 0.8s;
+    box-shadow: ${(props) => props.theme.styles['box-shadow']};
     :hover {
-        transform: scale(1.05);
-    }
-    :focus {
-        transform: scale(1.05);
-        border: 0px;
+        box-shadow: ${(props) => props.theme.styles['box-shadow-hover']};
     }
     > .ant-input {
         font-size: 14px;

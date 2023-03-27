@@ -15,9 +15,10 @@ const Container = styled(Button)`
     border-radius: 4px;
     align-items: center;
     flex-direction: column;
-    border: 1px solid ${ANTD_GRAY[4]};
+    background-color: rgba(255, 255, 255, 0.45);
     box-shadow: ${(props) => props.theme.styles['box-shadow']};
     &&:hover {
+        background-color: rgba(255, 255, 255, 0.65);
         box-shadow: ${(props) => props.theme.styles['box-shadow-hover']};
     }
     white-space: unset;

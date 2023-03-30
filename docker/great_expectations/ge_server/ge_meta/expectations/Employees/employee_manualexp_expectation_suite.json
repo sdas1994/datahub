@@ -1,0 +1,35 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "Employees.employee_manualexp_expectation_suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_distinct_values_to_be_in_set",
+      "kwargs": {
+        "column": "emp_no",
+        "value_set": [
+          2,
+          4
+        ]
+      },
+      "meta": {
+        "notes": {
+          "content": "Some clever comment about this expectation. **Markdown** `Supported`",
+          "format": "markdown"
+        }
+      }
+    },
+    {
+      "expectation_type": "expect_table_row_count_to_be_between",
+      "kwargs": {
+        "min_value": 1000
+      },
+      "meta": {
+        "notes": {}
+      }
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.16.0+36.gde5fa8fb6"
+  }
+}

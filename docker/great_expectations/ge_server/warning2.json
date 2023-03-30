@@ -1,0 +1,15 @@
+{"expectation_suite_name": "employee_manualexp",
+    "expectations": [
+    {"expectation_type": "expect_column_distinct_values_to_be_in_set",
+    "kwargs": {"column": "emp_no", "value_set": [2, 4]},
+    "meta": {
+            "notes": {
+                           "format": "markdown",
+                         "content": "Some clever comment about this expectation. **Markdown** `Supported`"
+                     }
+          }
+    },
+    
+    {"expectation_type": "expect_table_row_count_to_be_between",
+    "kwargs": {"min_value": 1000},
+    "meta":{"notes":{}}}]}

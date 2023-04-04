@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Background } from '../shared/Background';
 import { HomePageHeader } from './HomePageHeader';
 import { HomePageBody } from './HomePageBody';
 import analytics, { EventType } from '../analytics';
@@ -17,7 +18,7 @@ export const HomePage = () => {
         analytics.event({ type: EventType.HomePageViewEvent });
     }, []);
     return (
-        <>
+        <Background>
             <OnboardingTour
                 stepIds={[
                     GLOBAL_WELCOME_TO_DATAHUB_ID,
@@ -30,6 +31,6 @@ export const HomePage = () => {
             />
             <HomePageHeader />
             <HomePageBody />
-        </>
+        </Background>
     );
 };

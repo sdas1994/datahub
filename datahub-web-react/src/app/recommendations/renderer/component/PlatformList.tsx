@@ -9,7 +9,7 @@ import { capitalizeFirstLetterOnly } from '../../../shared/textUtil';
 
 const PlatformListContainer = styled.div`
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 `;

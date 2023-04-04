@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useHistory } from 'react-router';
-import { Typography, Image, Row, Button, Tag } from 'antd';
+import { Typography, Image, Row, Button } from 'antd';
 import styled, { useTheme } from 'styled-components/macro';
 import { RightOutlined } from '@ant-design/icons';
 import { ManageAccount } from '../shared/ManageAccount';
@@ -15,22 +15,12 @@ import {
 import { EntityType, FacetFilterInput } from '../../types.generated';
 import analytics, { EventType } from '../analytics';
 import { HeaderLinks } from '../shared/admin/HeaderLinks';
-import { ANTD_GRAY } from '../entity/shared/constants';
 import { useAppConfig } from '../useAppConfig';
 import { DEFAULT_APP_CONFIG } from '../../appConfigContext';
 import { HOME_PAGE_SEARCH_BAR_ID } from '../onboarding/config/HomePageOnboardingConfig';
 import { useQuickFiltersContext } from '../../providers/QuickFiltersContext';
 import { getAutoCompleteInputFromQuickFilter } from '../search/utils/filterUtils';
 import { useUserContext } from '../context/useUserContext';
-
-const Background = styled.div`
-    width: 100%;
-    background-image: linear-gradient(
-        ${(props) => props.theme.styles['homepage-background-upper-fade']},
-        75%,
-        ${(props) => props.theme.styles['homepage-background-lower-fade']}
-    );
-`;
 
 const WelcomeText = styled(Typography.Text)`
     font-size: 16px;
@@ -77,36 +67,6 @@ const SuggestionsHeader = styled.div`
     width: 100%;
 `;
 
-const SuggestionTagContainer = styled.div`
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    flex-wrap: wrap;
-    > div {
-        margin-bottom: 12px;
-    }
-`;
-
-const SuggestionButton = styled(Button)`
-    padding: 0px;
-    margin-bottom: 16px;
-`;
-
-const SuggestionTag = styled(Tag)`
-    font-weight: 500;
-    font-size: 12px;
-    margin-bottom: 20px;
-    && {
-        padding: 8px 16px;
-    }
-`;
-
-const SuggestedQueriesText = styled(Typography.Text)`
-    margin-left: 12px;
-    margin-bottom: 12px;
-    color: ${ANTD_GRAY[8]};
-`;
-
 const SearchBarContainer = styled.div`
     text-align: center;
 `;
@@ -126,13 +86,6 @@ const StyledRightOutlined = styled(RightOutlined)`
         padding: 0px;
     }
 `;
-
-function truncate(input, length) {
-    if (input.length > length) {
-        return `${input.substring(0, length)}...`;
-    }
-    return input;
-}
 
 function sortRandom() {
     return 0.5 - Math.random();
@@ -226,7 +179,7 @@ export const HomePageHeader = () => {
     }, [searchResultsData, entityRegistry]);
 
     return (
-        <Background>
+        <>
             <Row justify="space-between" style={styles.navBar}>
                 <WelcomeText>
                     {!!user && (
@@ -270,32 +223,14 @@ export const HomePageHeader = () => {
                     {searchResultsToShow && searchResultsToShow.length > 0 && (
                         <SuggestionsContainer>
                             <SuggestionsHeader>
-                                <SuggestedQueriesText strong>Try searching for</SuggestedQueriesText>
                                 <ExploreAllButton type="link" onClick={onClickExploreAll}>
                                     Explore all <StyledRightOutlined />
                                 </ExploreAllButton>
                             </SuggestionsHeader>
-                            <SuggestionTagContainer>
-                                {searchResultsToShow.slice(0, 3).map((suggestion) => (
-                                    <SuggestionButton
-                                        key={suggestion}
-                                        type="link"
-                                        onClick={() =>
-                                            navigateToSearchUrl({
-                                                type: undefined,
-                                                query: `"${suggestion}"`,
-                                                history,
-                                            })
-                                        }
-                                    >
-                                        <SuggestionTag>{truncate(suggestion, 40)}</SuggestionTag>
-                                    </SuggestionButton>
-                                ))}
-                            </SuggestionTagContainer>
                         </SuggestionsContainer>
                     )}
                 </SearchBarContainer>
             </HeaderContainer>
-        </Background>
+        </>
     );
 };

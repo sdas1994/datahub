@@ -8,12 +8,12 @@ import {
     RecommendationRenderType,
     ScenarioType,
 } from '../../types.generated';
+import { ANTD_GRAY } from '../entity/shared/constants';
 import { useListRecommendationsQuery } from '../../graphql/recommendations.generated';
 import { RecommendationModule } from '../recommendations/RecommendationModule';
 import { BrowseEntityCard } from '../search/BrowseEntityCard';
 import { useEntityRegistry } from '../useEntityRegistry';
 import { useGetEntityCountsQuery } from '../../graphql/app.generated';
-import { ANTD_GRAY } from '../entity/shared/constants';
 import { HomePagePosts } from './HomePagePosts';
 import {
     HOME_PAGE_DOMAINS_ID,
@@ -38,6 +38,11 @@ const RecommendationContainer = styled.div`
 `;
 
 const RecommendationTitle = styled(Typography.Title)`
+    &.ant-typography {
+        color: ${ANTD_GRAY[7]};
+    }
+    display: flex;
+    justify-content: center;
     margin-top: 0px;
     margin-bottom: 0px;
     padding: 0px;
@@ -50,14 +55,14 @@ const ThinDivider = styled(Divider)`
 
 const BrowseCardContainer = styled.div`
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 `;
 
 const NoMetadataEmpty = styled(Empty)`
     font-size: 18px;
-    color: ${ANTD_GRAY[8]};
+    color: ${(props) => props.theme.styles['homepage-text-color']};
 `;
 
 const NoMetadataContainer = styled.div`

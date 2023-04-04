@@ -8,7 +8,7 @@ import { useEntityRegistry } from '../../../useEntityRegistry';
 
 const DomainListContainer = styled.div`
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 `;

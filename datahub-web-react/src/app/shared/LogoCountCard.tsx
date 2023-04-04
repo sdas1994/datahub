@@ -24,9 +24,10 @@ const Container = styled(Button)`
     transition-duration: 0.4s;
     transtion-timing-function: linear;
     &&:hover {
-        border-radius: 8px;
+        border-radius: 2px;
         border: 1px solid rgba(30, 226, 168, 0.2);
         background: linear-gradient(135deg, rgba(30, 226, 168, 0.2) 0%, rgba(255, 255, 255, 0.001) 100%);
+        box-shadow: ${(props) => props.theme.styles['box-shadow-hover']};
     }
     white-space: unset;
 `;
@@ -40,7 +41,7 @@ const PlatformLogo = styled(Image)`
 
 const CountText = styled(Typography.Text)`
     margin-left: auto;
-    font-size: 18px;
+    font-size: 16px;
     color: ${ANTD_GRAY[8]};
 `;
 

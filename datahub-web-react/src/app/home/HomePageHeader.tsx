@@ -76,6 +76,7 @@ const ExploreAllButton = styled(Button)`
         padding: 0px;
         margin: 0px;
         height: 16px;
+        color: rgb(30, 226, 168, 0.8);
     }
 `;
 

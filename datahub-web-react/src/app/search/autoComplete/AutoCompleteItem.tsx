@@ -1,6 +1,7 @@
 import { Tooltip } from 'antd';
 import React from 'react';
 import styled from 'styled-components/macro';
+import { ANTD_GRAY } from '../../entity/shared/constants';
 import { CorpUser, Entity, EntityType, Tag } from '../../../types.generated';
 import { useEntityRegistry } from '../../useEntityRegistry';
 import AutoCompleteEntity from './AutoCompleteEntity';
@@ -13,6 +14,7 @@ export const SuggestionContainer = styled.div`
     display: flex;
     justify-content: left;
     align-items: center;
+    color: ${ANTD_GRAY[4]};
 `;
 
 interface Props {

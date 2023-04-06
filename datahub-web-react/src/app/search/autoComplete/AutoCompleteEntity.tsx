@@ -15,6 +15,7 @@ const AutoCompleteEntityWrapper = styled.div`
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    background: red;
 `;
 
 const PreviewImage = styled(Image)`

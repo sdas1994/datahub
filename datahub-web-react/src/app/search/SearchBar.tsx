@@ -42,17 +42,27 @@ const AutoCompleteContainer = styled.div`
 
 const StyledSearchBar = styled(Input)`
     &&& {
+        background: ${(props) => props.theme.styles['homepage-background-lower-fade']};
+        border: 2px solid ${(props) => props.theme.styles['body-background']};
         border-radius: 70px;
         height: 40px;
         font-size: 20px;
-        color: ${ANTD_GRAY[7]};
+        color: ${ANTD_GRAY[8]};
+    }
+    &&&:hover {
+        border: 1px solid ${(props) => props.theme.styles['component-background']};
     }
     > .ant-input {
+        background: ${(props) => props.theme.styles['homepage-background-lower-fade']};
         font-size: 14px;
+        color: ${ANTD_GRAY[5]};
     }
     .ant-input-clear-icon {
         height: 15px;
         width: 15px;
+    }
+    .ant-select-item-option-grouped {
+        background: blue;
     }
 `;
 
@@ -302,8 +312,12 @@ export const SearchBar = ({
                 onChange={(v) => setSelected(filterSearchQuery(v as string))}
                 dropdownStyle={{
                     maxHeight: 1000,
+                    borderRadius: '12px',
                     overflowY: 'visible',
                     position: (fixAutoComplete && 'fixed') || 'relative',
+                    backdropFilter: 'blur(10px) brightness(85%)',
+                    background: 'rgba(0, 0, 0, 0.05)',
+                    boxShadow: '0px 1px 6px 0.5px rgb(0, 0, 0, 0.1)',
                 }}
                 onDropdownVisibleChange={(isOpen) => {
                     if (!isOpen) {

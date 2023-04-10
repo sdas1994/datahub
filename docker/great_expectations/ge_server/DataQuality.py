@@ -211,6 +211,7 @@ class DataQuality():
         create checkpoint if not exist.
         '''
         
+
         try:
             batch_request = self.create_batch_data()   
             
@@ -220,9 +221,21 @@ class DataQuality():
                  "class_name": "SimpleCheckpoint",
                  "run_name_template": "%Y%m%d-%H%M%S",
                  "expectation_suite_name":self.expectation_suite_name,
+                            
                  "validations": [
+
                             {
-                                "batch_request": batch_request
+                                "batch_request": batch_request,
+                                "action_list": [
+                                        {
+                                        "name": "datahub_action",
+                                        "action": {
+                                            "module_name": "datahub.integrations.great_expectations.action",
+                                            "class_name" : "DataHubValidationAction",
+                                            "server_url" : "http://host.docker.internal:8080"
+                                        }
+                                        }
+                                        ]
                             }
                         ]  
              }
